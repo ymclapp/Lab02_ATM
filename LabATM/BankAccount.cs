@@ -8,7 +8,11 @@ namespace LabATM
 {
   public class BankAccount
   {
-    private static double balance = 0;
+    public int Account()
+    {
+      int balance = 0;
+      return balance;
+    }
 
 
   }
