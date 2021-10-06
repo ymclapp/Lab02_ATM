@@ -8,9 +8,19 @@ namespace LabATM
 {
   public class BankAccount
   {
-    private static double balance = 0;
+    public int Account()
+    {
+      int balance = 0;
+      return balance;
+    }
 
-
+    public int Deposit(int balance)
+    {
+      int depositAmount = 500;
+      //int prevBalance = balance;
+      int newBalance = balance + depositAmount;
+      return newBalance;
+    }
   }
 
 
