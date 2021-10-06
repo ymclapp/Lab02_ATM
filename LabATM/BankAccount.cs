@@ -14,7 +14,13 @@ namespace LabATM
       return balance;
     }
 
-
+    public int Deposit(int balance)
+    {
+      int depositAmount = 500;
+      //int prevBalance = balance;
+      int newBalance = balance + depositAmount;
+      return newBalance;
+    }
   }
 
 

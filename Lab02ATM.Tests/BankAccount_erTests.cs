@@ -31,5 +31,17 @@ namespace Lab02ATM.Tests
       //Assert
       Assert.Equal(0, result);
     }
+
+    [Fact]
+    public void add_money_to_the_balance()
+    {
+      //Arrange
+      BankAccount atm = new BankAccount();
+      //Act
+      int result = atm.Deposit(0);
+      //Assert
+      Assert.Equal(500, result);
+    }
+
   }
 }
