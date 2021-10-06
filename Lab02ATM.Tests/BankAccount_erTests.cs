@@ -43,5 +43,16 @@ namespace Lab02ATM.Tests
       Assert.Equal(500, result);
     }
 
+    [Fact]
+    public void subtract_money_from_the_balance()
+    {
+      //Arrange
+      BankAccount atm = new BankAccount();
+      //Act
+      int result = atm.Withdrawal(1000);
+      //Assert
+      Assert.Equal(980, result);
+    }
+
   }
 }

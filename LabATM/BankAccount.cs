@@ -21,6 +21,15 @@ namespace LabATM
       int newBalance = balance + depositAmount;
       return newBalance;
     }
+
+    public int Withdrawal(int balance)
+    {
+      int withdrawalAmount = 20;
+      //int prevBalance = balance;
+      int newBalance = balance - withdrawalAmount;
+      return newBalance;
+    }
+
   }
 
 
