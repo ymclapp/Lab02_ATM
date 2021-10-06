@@ -8,26 +8,26 @@ namespace LabATM
 {
   public class BankAccount
   {
-    public int Account()
+    private decimal balance;  //balance here will default to 0 if no value given
+    public decimal GetBalance()
     {
-      int balance = 0;
       return balance;
     }
 
-    public int Deposit(int balance)
+    public void Deposit(decimal depositAmount)
     {
-      int depositAmount = 500;
-      //int prevBalance = balance;
-      int newBalance = balance + depositAmount;
-      return newBalance;
+      if (depositAmount < 0)
+        throw new ArgumentOutOfRangeException("Amount must be positive");
+        balance += depositAmount;
     }
 
-    public int Withdrawal(int balance)
+    public void Withdrawal(decimal withdrawalAmount)
     {
-      int withdrawalAmount = 20;
+      //withdrawalAmount = 20;
       //int prevBalance = balance;
-      int newBalance = balance - withdrawalAmount;
-      return newBalance;
+      if (balance - withdrawalAmount < 0)
+        throw new InvalidOperationException("Your balance is too low for this request");
+        balance -= withdrawalAmount;
     }
 
   }

@@ -10,16 +10,16 @@ namespace Lab02ATM.Tests
 {
   public class BankAccount_erTests
   {
-    [Fact]
-    public void ex_FizzBuzz_returns_1_given_1()
-    {
+    //[Fact]
+    //public void ex_FizzBuzz_returns_1_given_1()
+    //{
       //Arrange
       //FizzBuzzer fb = new FizzBuzzer();
       //Act
       //string result = fb.FizzBuzz(1);
       //Assert
       //Assert.Equal("1", result);
-    }
+    //}
 
     [Fact]
     public void balance_shows_correct_amount()
@@ -27,7 +27,8 @@ namespace Lab02ATM.Tests
       //Arrange
       BankAccount atm = new BankAccount();
       //Act
-     int result = atm.Account();
+     decimal result = atm.GetBalance();
+
       //Assert
       Assert.Equal(0, result);
     }
@@ -37,10 +38,13 @@ namespace Lab02ATM.Tests
     {
       //Arrange
       BankAccount atm = new BankAccount();
+
       //Act
-      int result = atm.Deposit(0);
+      atm.Deposit(50);
+
       //Assert
-      Assert.Equal(500, result);
+      decimal newBalance = atm.GetBalance();
+      Assert.Equal(50, newBalance);
     }
 
     [Fact]
@@ -48,10 +52,13 @@ namespace Lab02ATM.Tests
     {
       //Arrange
       BankAccount atm = new BankAccount();
+
       //Act
-      int result = atm.Withdrawal(1000);
+      atm.Withdrawal(20);
+
       //Assert
-      Assert.Equal(980, result);
+      decimal newBalance = atm.GetBalance();
+      Assert.Equal(0, newBalance);  //need to update this when I fix the BankAccout withdrawal coding to not do insufficient
     }
 
   }
