@@ -54,12 +54,44 @@ namespace Lab02ATM.Tests
       BankAccount atm = new BankAccount();
 
       //Act
-      atm.Withdrawal(20);
+      atm.Withdrawal(0);
 
       //Assert
       decimal newBalance = atm.GetBalance();
-      Assert.Equal(0, newBalance);  //need to update this when I fix the BankAccout withdrawal coding to not do insufficient
+      Assert.Equal(0, newBalance); 
     }
 
-  }
+    [Fact]
+    public void subtract_money_from_the_balance_to_get_a_throw()
+    {
+      //Arrange
+      BankAccount atm = new BankAccount();
+
+      //Act
+      //atm.Withdrawal(0);
+
+      //Assert
+      decimal newBalance = atm.GetBalance();
+      Assert.Throws<ArgumentOutOfRangeException>(() =>
+      {
+        atm.Withdrawal(-20);
+      });
+    }
+    [Fact]
+    public void subtract_money_from_the_balance_to_get_another_throw()
+    {
+      //Arrange
+      BankAccount atm = new BankAccount();
+
+      //Act
+      //atm.Withdrawal(0);
+
+      //Assert
+      decimal newBalance = atm.GetBalance();
+      Assert.Throws<InvalidOperationException>(() =>
+      {
+        atm.Withdrawal(20);
+      });
+    }
+    }
 }

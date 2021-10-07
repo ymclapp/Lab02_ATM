@@ -23,11 +23,11 @@ namespace LabATM
 
     public void Withdrawal(decimal withdrawalAmount)
     {
-      //withdrawalAmount = 20;
-      //int prevBalance = balance;
-      if (balance - withdrawalAmount < 0)
+       if (balance - withdrawalAmount < 0)
         throw new InvalidOperationException("Your balance is too low for this request");
-        balance -= withdrawalAmount;
+      else if (withdrawalAmount < 0)
+        throw new ArgumentOutOfRangeException("Please enter a positive amount to withdraw");
+      balance -= withdrawalAmount;
     }
 
   }
