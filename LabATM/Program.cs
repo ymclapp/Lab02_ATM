@@ -8,14 +8,38 @@ namespace LabATM
     static void Main(string[] args)
     {
       WriteWelcome();
+      {
+        int action = PromptForAction();
+        if(action == 1)
+        {
+          ViewBalance();
+        }
+        else if (action == 2)
+        {
+          PromptAndDeposit();
+        }
+        else if (action == 3)
+        {
+          PromptAndWithdraw();
+        }
+        else if (action == 0)
+        {
+          return;
+        }
+        else
+        {
+          Console.WriteLine("Please enter one of the correct options");
+        }
+      }
       PromptForAction();
+
 
       static void WriteWelcome()
       {
         Console.WriteLine("Welcome to your friendly ATM!\n");
       }//this is the end of the WriteWelcome()
 
-      static void PromptForAction()
+      static int PromptForAction()
       {
         String promptResponse;
         int userResponse;
@@ -31,11 +55,14 @@ namespace LabATM
           userResponse = Convert.ToInt32(promptResponse);
           Console.WriteLine ("You selected option " + userResponse);
         }
-        catch
+        catch (FormatException)
         {
           Console.WriteLine ("There was an error");
+          return 0;
         }
       }//this is the end of the PromptForAction()
+      static 
+
     }//this is the end of the Main()
   }//this is the end of the class Program
 }//this is the end of the namespace LabATM
