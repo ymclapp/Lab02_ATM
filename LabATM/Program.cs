@@ -8,11 +8,10 @@ namespace LabATM
     static void Main(string[] args)
     {
       WriteWelcome();
-      {
         int action = PromptForAction();
         if(action == 1)
         {
-          ViewBalance();
+         // ViewBalance();
         }
         else if (action == 2)
         {
@@ -20,7 +19,7 @@ namespace LabATM
         }
         else if (action == 3)
         {
-          PromptAndWithdraw();
+         // PromptAndWithdraw();
         }
         else if (action == 0)
         {
@@ -31,7 +30,7 @@ namespace LabATM
           Console.WriteLine("Please enter one of the correct options");
         }
       }
-      PromptForAction();
+      
 
 
       static void WriteWelcome()
@@ -54,6 +53,7 @@ namespace LabATM
           promptResponse = Console.ReadLine();
           userResponse = Convert.ToInt32(promptResponse);
           Console.WriteLine ("You selected option " + userResponse);
+        return userResponse;
         }
         catch (FormatException)
         {
@@ -61,7 +61,25 @@ namespace LabATM
           return 0;
         }
       }//this is the end of the PromptForAction()
-      static 
+
+      static int PromptAndDeposit()
+      {
+        String promptResponse;
+        int userResponse;
+      try
+      {
+        Console.WriteLine("Please enter the amount that you would like to deposit:  ");
+        promptResponse = Console.ReadLine();
+        userResponse = Convert.ToInt32(promptResponse);
+        Console.WriteLine("You are depositing $" + userResponse);
+        return userResponse;
+      }
+      catch(FormatException)
+      {
+        Console.WriteLine("There was an error");
+        return 0;
+      }
+      //}//this is the end of the class PromptAndDeposit
 
     }//this is the end of the Main()
   }//this is the end of the class Program
