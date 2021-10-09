@@ -7,7 +7,10 @@ namespace LabATM
     private static readonly BankAccount account = new BankAccount();
     static void Main(string[] args)
     {
+      BankAccount.ClearLogFile();
+
       WriteWelcome();
+
       int action = PromptForAction();
       if (action == 1)
       {
@@ -80,7 +83,7 @@ namespace LabATM
         account.Deposit(userDepResponse);
         decimal balance = account.GetBalance();
         Console.WriteLine($"Thank you for choosing Acme Bank for all of your banking needs!");
-        Console.WriteLine($"Your new balance is:  ${balance}");
+        Console.WriteLine($"Your new balance is:  {balance:C2}");
 
     }//this is the end of the class PromptAndDeposit()
 
@@ -92,12 +95,12 @@ namespace LabATM
         Console.WriteLine("Please enter the amount that you would like to withdraw:  ");
         promptResponse = Console.ReadLine();
         userWithResponse = Convert.ToInt32(promptResponse);
-        Console.WriteLine("You are withdrawing $" + userWithResponse);
+        string message = $"You are withdrawing {userWithResponse: +##; -##; 0}";
         //return userWithResponse;
         account.Withdrawal(userWithResponse);
         decimal balance = account.GetBalance();
         Console.WriteLine($"Thank you for choosing Acme Bank for all of your banking needs!");
-        Console.WriteLine($"Your new balance is:  ${balance}");
+        Console.WriteLine($"Your new balance is:  {balance:C2}");
 
     }//this is the end of the PromptAndWithdraw()
 
