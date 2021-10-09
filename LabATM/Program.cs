@@ -44,6 +44,7 @@ namespace LabATM
       {
         String promptResponse;
         int userResponse;
+      
         try
         {
           Console.WriteLine("Shall we play a game?  What would you like to do today?");
@@ -52,9 +53,11 @@ namespace LabATM
           Console.WriteLine("Enter 3 if you would like to make a withdrawal");
           Console.WriteLine("Enter 0 if you would like to quit\n");
           Console.WriteLine("Please enter a number from the selections above:  ");
+
           promptResponse = Console.ReadLine();
           userResponse = Convert.ToInt32(promptResponse);
           Console.WriteLine ("You selected option " + userResponse);
+
         return userResponse;
         }
         catch (FormatException)
@@ -68,7 +71,7 @@ namespace LabATM
     {
       String promptResponse;
       int userDepResponse;
-      
+
         Console.WriteLine("Please enter the amount that you would like to deposit:  ");
         promptResponse = Console.ReadLine();
         userDepResponse = Convert.ToInt32(promptResponse);
